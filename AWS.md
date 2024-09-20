@@ -114,6 +114,101 @@ ASG - Group Size: Min, Max, Desired
 
 
 
+## VPC - Virtual Private Cloud
+
+Isolated Network (No Public network)
+5 VPC
+VPC (region)
+Subnet (az)
+
+CIDR - /16
+
+/32 - 1
+/31 - 2
+/30 - 4
+/20 - 4096 - 5 IPs reserved - 4091 - use 
+first - network
+last - broadcast
+second - Routing
+third - DNS
+foursth - Future
+
+VPC - Infra
+Subnets (private and Public) = no default public ip 
+Internet Gateway =  
+route table 
+Nat gateway =
+SG
+NACL
+NI
+Elastic IPs
+Endpoints
+Peering Connection - Different CIDR
+
+Peering connection (requester) - VPC ID (Accepter)
+VPC - Webserver  ---> VPC - Database
+us-east-1 ---> ap-south-1   
 
 
+Steps: Create peering connection (Requester and accepter)
+Steps: Generate peering request 
+Steps: Accept Peering request
+Steps: Route traffic route table
+Steps: Subnet A will be route in route table B and vice versa
 
+
+SG vs NACL
+----------
+1. NI attach  - 2. Subnet Attach
+2. Statefull firewall - 2. Stateless Firewall
+3. Public Ports are allowed - 3. Allow public port separetly
+4. Inbount rule only - 4. inbound and outbound both
+5. Allow - 5. Allow / Deny
+
+
+site to site (VPC - VPC)
+client to site (VPC - Laptop)
+
+On prem - VPC -> Transit Gateways
+
+Direct Connect - Nagpur 
+
+
+Traffic Mirroring -> Traffic Monitoring Server
+
+## CloudWatch
+
+Monitoring and logging service
+
+Dashboard
+Alarm  (OK, insuficient data, Alarm)
+Metrics (Processed Data)
+Logs
+Events
+
+metrics
+
+Default Metric      Custom Metric
+CPUUtilization      MemoryUtlization 
+NetworkIn           StorageUtilization
+NetworkOut
+
+Logs (Application logs stream)  /var/log/httpd/
+Cloudwatch Agent /var/log/httpd/access.log   error.logss
+
+
+## RDS (managed Relation Database Service)
+
+Administration AWS
+
+RDS Instance -> SSHXXX
+
+1) No Administration
+2) No System Engineer (Human Resource) 
+3) Storage AutoScaling (Vertical AutoScaling)
+4) Schedule Automated Backups
+5) High Availability
+6) Easy to manage Read Replicas
+7) Auto Minor Upgradation  
+
+## Route53 + CloudFront (CDN) + Lambda
