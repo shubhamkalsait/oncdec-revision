@@ -211,4 +211,64 @@ RDS Instance -> SSHXXX
 6) Easy to manage Read Replicas
 7) Auto Minor Upgradation  
 
-## Route53 + CloudFront (CDN) + Lambda
+## Route53 
+
+DNS and Traffic Routing 
+
+Hosted Zone, Health Checks, Routing Policies
+
+Hosted Zone - Store records
+
+SOA - Start of Authority
+NS - Name Server
+A - IP to Domain name
+AAAA - IPv6 to Domain Name
+CNAME - Domain Name to Domain Name
+PTR - Domain Name to IP
+TXT - Text Record
+MX - Mail Exchange Record
+
+Health Checks - ping 
+ 
+http://172.31.0.15 - Notify / Routing Policy
+
+
+Routing Policy:
+-------------
+
+Simple Routing - domain -> domain
+Failover -> 
+Weighted -> 
+Geolocation based -> India / Canada
+Geoproximity -> 
+Latency -> 
+IP-based -> 
+multivalue answered -> 
+
+
+## CloudFront
+CDN - Content Delivery Network
+
+Cache Server (Edge location), Distribution
+
+
+Server (IP) --- LoadBalancer (Endpoint) ---- CDN (endpoint) --- Route53 (endpoint to Domain)
+
+## Lambda - Serverless Computing Service
+
+Java, Python - Server+Environment
+
+(submit) - Code run 
+
+Server Administrate
+System Engineer
+Env
+Install
+24X7 Server
+
+- API application
+- Boto3 Python (AWS Automate)
+    - Backup instace (Event bridge) Stopping - EBS backup
+    - DAtabase backup
+    - Workign hour,(event bridge) instance stop
+    - archiving images, s3 upload (.jpg)
