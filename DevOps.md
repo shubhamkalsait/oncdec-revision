@@ -98,5 +98,125 @@ git merge
 git fetch
 git revert
  
+## Docker - Containerisation Tool
 
+Baremetal 
+- monolithic / XXX Microservices
+- Scalibility
+- Effieciency
+- Costlier
+
+Virtualization
+- Scalable
+- Microservices
+- Efficiency
+- Less costlier
+- quarals
+- OS 
+- Daemons
+
+Containerisation
+- app, files, os lib, - container image - container 
+- containers - image - containers
+- High scalability
+- light weight
+- 1 Service
+
+
+Dockerfile
+----------
+
+docker images - 
+customise, dockerfile
+
+BASE IMAGE
+INSTRICTION ARG
+from  centos:7
+run  yum install httpd -y               (building)
+expose 80
+copy ./index.html /var/www/html/index.html       (building the docker image)
+add https://myfiles.com/image.jpg /var/www/html/image.jpg     (download)                             
+EXNTRYPOINT httpd -DFOREGROUND     (running)
+
+
+USER 
+WORKDIR /var/www/html
+
+ENV  - Container running
+ARG  - Building
+
+exit()
+
+
+multistage
+
+light weight
+
+build
+
+
+
+studentapp
+git
+mvn
+tomcat
+
+dockerfile
+
+form centos:7
+run yum install git maven tomcat -y
+run git clone studentapp
+run mvn clean package
+run cp target/student.war tomcat/webapps
+cmd catalina.sh run
+
+from git
+run git clone studentapp
+
+From maven as builder
+run mvn clean package
+
+from tomcat
+copy --from=builder studentapp/target/student.war ./
+run cp ./student.war tomcat/webapps
+cmd catlina.sh
+
+
+## Kubernetes
+--------------
+
+Orchestration tool 
+
+kubeadm 
+minikube 
+kind 
+EKS
+GKE
+AKS
+------------
+Architecture:-
+
+k8s Cluster - two types nodes - workernode and controlplane
+
+Controlplane (API server, etcd, scheduler, controller Manager)
+workernode (Kubeproxy, kubelet, Contaier Engine, Pods)
+
+lifecycle of pod
+-----------
+
+Objects
+-------
+- Pods - Wrapper around containers
+- Services - ClusterIP, NodePort, Loadbalancer, Headless 
+- Deployment - maintain deployment of the pods
+- StatefulSet - replicas of stateful pod
+- Daemon Set - Create pod on every node
+- ReplicaSet - replicas of pod - apps/v1 - set based
+- Replication Controller - replicas of pod - v1 - Equality based
+- Config Map / Secrets - Variables
+- PV / PVC - Persistent Data
+- Ingress - Ingress rule
+- namespace - Devide cluster
+- role, rolebinding, clusterRole, clusterRoleBinding
+-------
 
