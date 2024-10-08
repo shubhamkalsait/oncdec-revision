@@ -260,6 +260,12 @@ resource "aws_instance" "my_instance1" {
     ami = var.images
     vpc_security_group_id = data.aws_security_group.my_sg.id
     instance_type = "t2.micro"
+    user_data = <<EOF   
+                #!/bin/bash
+                yum install httpd -y
+                systemctl start httpd
+            EOF
+    user_data = file("demo.sh")
 }
 
 data "aws_security_group" "my_sg" {
