@@ -220,3 +220,78 @@ Objects
 - role, rolebinding, clusterRole, clusterRoleBinding
 -------
 
+
+## Terraform
+
+- IAC - Infrastructure As Code
+- Terraform vs Ansible
+    IAC | CM
+    create resources | configure server
+- Terrafor Lifecycle
+    terraform init, plan, apply, destroy
+- How to remove specific resource?
+- Terraform language
+.tf / .tf.json
+
+- provider, resource, variables, output, data, module, terraform
+
+provider "aws" {
+    access_key_id =
+    secret_access_key =
+    region = 
+}
+
+terraform {
+    backend "s3" {
+        bucket = 
+        region = 
+        key = "terraform.tfstate"
+    }
+}
+
+#resource "aws_instance" "my_instance" {
+#    ami = var.images
+#    vpc_security_group_id = data.aws_security_group.my_sg.id
+#}
+
+instance = t2.micro
+
+resource "aws_instance" "my_instance1" {
+    ami = var.images
+    vpc_security_group_id = data.aws_security_group.my_sg.id
+    instance_type = "t2.micro"
+}
+
+data "aws_security_group" "my_sg" {
+    name = "default"
+}
+
+variables "images" {
+    default = "ami-afhiwh313"
+}
+
+output "public_ip" {
+    value = aws_instance.my_instance.public_ip 
+}
+module "my_vpc" {
+    source = "./module/instance"
+    images = "ami-dfsfk234"
+}
+
+dev.tfvar
+    images = "ami-dsff234"
+
+export ACCESS_KEY_ID="ajdbfshgo"
+export secret_access_key="grkgjdf23423"
+
+terraform apply --var-file dev.tfvar --var access_key_id=$ACCESS_KEY_ID --var seceret_access_key="14b325"
+
+- terraform import
+
+resource "aws_instance" "new_instance" {
+    name = "my-instance"
+}
+
+terraform.state
+
+- terraform taint
